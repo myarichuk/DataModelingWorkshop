@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace ImportBeerDBTemplate.RavenUtils
+namespace ImportBeerDBTemplate.Utils
 {
     public static class Configuration
     {

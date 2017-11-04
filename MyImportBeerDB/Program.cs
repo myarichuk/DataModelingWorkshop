@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Linq;
 using AutoMapper;
-using ImportBeerDBTemplate.RavenDB;
+using ImportBeerDBTemplate.CsvRowEntities;
+using ImportBeerDBTemplate.Utils;
+using MyImportBeerDB.RavenEntities;
 
 namespace ImportBeerDBTemplate
 {
@@ -8,18 +11,37 @@ namespace ImportBeerDBTemplate
     {
         static void Main(string[] args)
         {
-            BeersDBInMemory.LoadDataFromCsv();
-            OperationUtils.CreateOpenBeerDBDatabaseIfNeeded();
+            Console.Write("Loading OpenBeerDB data from csv files...");
+            InMemoryOpenBeerDB.LoadData();
+            Console.WriteLine("done");
 
-            Console.WriteLine("Loaded data from CSV, starting import to RavenDB.");
-            
-            using (var session = DocumentStoreHolder.Store.BulkInsert())
-            {
-                //session.Store(/*entity instance, entity id*/)
-            } //flush the changes
+            Console.Write("Loading OpenBeerDataDB data from csv files...");
+            InMemoryOpenBeerDataDB.LoadData();
+            Console.WriteLine("done");
 
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
+            Mapper.Initialize(config =>
+            {                
+                config.AddProfiles(typeof(Program).Assembly);
+            });
+
+
+            OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDB);
+
+            RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDB,
+                InMemoryOpenBeerDB.Breweries.Select(Mapper.Map<Brewery>));
+
+            RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDB,
+                InMemoryOpenBeerDB.BeerCategories.Select(Mapper.Map<BeerCategory>));
+
+            RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDB,
+                InMemoryOpenBeerDB.BeerStyles.Select(Mapper.Map<BeerStyle>));
+
+            RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDB,
+                InMemoryOpenBeerDB.Beers.Select(Mapper.Map<Beer>));
+
+            //OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDataDB);
+
+            Console.WriteLine($"{Environment.NewLine} Finished importing data :)");
         }
     }
 }

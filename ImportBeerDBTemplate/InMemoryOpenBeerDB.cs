@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using ImportBeerDBTemplate.CsvRowEntities;
-using ImportBeerDBTemplate.RavenUtils;
+using ImportBeerDBTemplate.Utils;
 
 namespace ImportBeerDBTemplate
 {

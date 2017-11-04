@@ -6,16 +6,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\ImportBeerDBTemplate\BeersDBInMemory.cs" Link="BeersDBInMemory.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerCategoryRow.cs" Link="CsvRowEntities\BeerCategoryRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerRecipeRow.cs" Link="CsvRowEntities\BeerRecipeRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerRow.cs" Link="CsvRowEntities\BeerRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerStyleRow.cs" Link="CsvRowEntities\BeerStyleRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BJCPCategories.cs" Link="CsvRowEntities\BJCPCategories.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BJCPSubCategories.cs" Link="CsvRowEntities\BJCPSubCategories.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BreweryGeocodeRow.cs" Link="CsvRowEntities\BreweryGeocodeRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BreweryRow.cs" Link="CsvRowEntities\BreweryRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\RavenUtils\Configuration.cs" Link="RavenUtils\Configuration.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\RavenUtils\Constants.cs" Link="RavenUtils\Constants.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\RavenUtils\DocumentStoreHolder.cs" Link="RavenUtils\DocumentStoreHolder.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\RavenUtils\OperationUtils.cs" Link="RavenUtils\OperationUtils.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\FermentablesRow.cs" Link="CsvRowEntities\FermentablesRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\HopsRow.cs" Link="CsvRowEntities\HopsRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\HopSubstituteRow.cs" Link="CsvRowEntities\HopSubstituteRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\InMemoryOpenBeerDataDB.cs" Link="InMemoryOpenBeerDataDB.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\InMemoryOpenBeerDB.cs" Link="InMemoryOpenBeerDB.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\Utils\Configuration.cs" Link="Utils\Configuration.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\Utils\Constants.cs" Link="Utils\Constants.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\Utils\DocumentStoreHolder.cs" Link="Utils\DocumentStoreHolder.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\Utils\MiscUtils.cs" Link="Utils\MiscUtils.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\Utils\OperationUtils.cs" Link="Utils\OperationUtils.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\Utils\RavenUtil.cs" Link="Utils\RavenUtil.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,24 +38,45 @@
 
   <ItemGroup>
     <Folder Include="CsvRowEntities\" />
-    <Folder Include="CsvDataFiles\" />
-    <Folder Include="RavenUtils\" />
+    <Folder Include="DataFiles\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\ThirdParty\openbeerdb_csv\beers.csv" Link="CsvDataFiles\beers.csv">
+    <None Include="..\ThirdParty\openbeerdata\bjcp_categories.csv" Link="DataFiles\bjcp_categories.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\ThirdParty\openbeerdb_csv\breweries.csv" Link="CsvDataFiles\breweries.csv">
+    <None Include="..\ThirdParty\openbeerdata\bjcp_subcategories.csv" Link="DataFiles\bjcp_subcategories.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\ThirdParty\openbeerdb_csv\breweries_geocode.csv" Link="CsvDataFiles\breweries_geocode.csv">
+    <None Include="..\ThirdParty\openbeerdata\fermentables.csv" Link="DataFiles\fermentables.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\ThirdParty\openbeerdb_csv\categories.csv" Link="CsvDataFiles\categories.csv">
+    <None Include="..\ThirdParty\openbeerdata\hops.csv" Link="DataFiles\hops.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\ThirdParty\openbeerdb_csv\styles.csv" Link="CsvDataFiles\styles.csv">
+    <None Include="..\ThirdParty\openbeerdata\hop_substitutes.csv" Link="DataFiles\hop_substitutes.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\srm.csv" Link="DataFiles\srm.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\beers.csv" Link="DataFiles\beers.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\breweries.csv" Link="DataFiles\breweries.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\breweries_geocode.csv" Link="DataFiles\breweries_geocode.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\categories.csv" Link="DataFiles\categories.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\geocodes.csv" Link="DataFiles\geocodes.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\styles.csv" Link="DataFiles\styles.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

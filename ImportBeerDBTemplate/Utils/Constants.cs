@@ -1,4 +1,4 @@
-﻿namespace ImportBeerDBTemplate.RavenUtils
+﻿namespace ImportBeerDBTemplate.Utils
 {
     public static class Constants
     {

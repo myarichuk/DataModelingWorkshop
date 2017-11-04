@@ -3,7 +3,7 @@ using System.IO;
 using CsvHelper.Configuration;
 using CsvReader = CsvHelper.CsvReader;
 
-namespace ImportBeerDBTemplate.RavenUtils
+namespace ImportBeerDBTemplate.Utils
 {
     public static class MiscUtils
     {
@@ -23,14 +23,7 @@ namespace ImportBeerDBTemplate.RavenUtils
                     csvReader.Configuration.BadDataFound = null;
                     while (csvReader.Read())
                     {
-                        try
-                        {
-                            rowReadCallback(csvReader.GetRecord<TRow>());
-                        }
-                        catch (Exception e)
-                        {
-                            /* importing for the demo,don't care about malformed rows */
-                        }
+                        rowReadCallback(csvReader.GetRecord<TRow>());
                     }
                 }
             }

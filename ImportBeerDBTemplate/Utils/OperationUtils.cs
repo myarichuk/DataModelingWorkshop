@@ -2,7 +2,7 @@
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 
-namespace ImportBeerDBTemplate.RavenUtils
+namespace ImportBeerDBTemplate.Utils
 {
     public static class OperationUtils
     {

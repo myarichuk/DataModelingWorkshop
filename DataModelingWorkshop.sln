@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImportBeerDBTemplate", "ImportBeerDBTemplate\ImportBeerDBTemplate.csproj", "{DD37867D-E087-413F-A4E9-CEFBAE838231}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyImportBeerDB", "MyImportBeerDB\MyImportBeerDB.csproj", "{74B2D3D6-D780-4269-9A14-41C196D46295}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DD37867D-E087-413F-A4E9-CEFBAE838231}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD37867D-E087-413F-A4E9-CEFBAE838231}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD37867D-E087-413F-A4E9-CEFBAE838231}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74B2D3D6-D780-4269-9A14-41C196D46295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B2D3D6-D780-4269-9A14-41C196D46295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B2D3D6-D780-4269-9A14-41C196D46295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B2D3D6-D780-4269-9A14-41C196D46295}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,6 @@
 ﻿using System;
-using ImportBeerDBTemplate.RavenUtils;
+using System.IO.MemoryMappedFiles;
+using ImportBeerDBTemplate.Utils;
 
 namespace ImportBeerDBTemplate
 {
@@ -17,6 +18,7 @@ namespace ImportBeerDBTemplate
 
             OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDB);
             OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDataDB);
+
         }
     }
 }

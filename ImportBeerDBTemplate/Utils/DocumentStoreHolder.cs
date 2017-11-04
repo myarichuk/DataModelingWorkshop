@@ -1,7 +1,7 @@
 ﻿using System;
 using Raven.Client.Documents;
 
-namespace ImportBeerDBTemplate.RavenUtils
+namespace ImportBeerDBTemplate.Utils
 {
     public class DocumentStoreHolder
     {
