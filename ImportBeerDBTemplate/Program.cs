@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using ImportBeerDBTemplate.RavenDB;
-using Raven.Client.ServerWide;
-using Raven.Client.ServerWide.Operations;
+﻿using System;
+using ImportBeerDBTemplate.RavenUtils;
 
 namespace ImportBeerDBTemplate
 {
@@ -9,26 +7,16 @@ namespace ImportBeerDBTemplate
     {
         static void Main()
         {
-            BeersDBInMemory.LoadDataFromCsv();
-            CreateOpenBeerDBDatabaseIfNeeded();
+            Console.Write("Loading OpenBeerDB data from csv files...");
+            InMemoryOpenBeerDB.LoadData();
+            Console.WriteLine("done");
 
-            using (var session = DocumentStoreHolder.Store.BulkInsert())
-            {
-                //session.Store(/*entity instance, entity id*/)
-            } //flush the changes
-        }
+            Console.Write("Loading OpenBeerDataDB data from csv files...");
+            InMemoryOpenBeerDataDB.LoadData();
+            Console.WriteLine("done");
 
-        static void CreateOpenBeerDBDatabaseIfNeeded()
-        {
-            var databaseNames =
-                DocumentStoreHolder.Store.Admin.Server.Send(new GetDatabaseNamesOperation(0, int.MaxValue));
-
-            if (!databaseNames.Contains(Configuration.Settings.Database))
-            {
-                DocumentStoreHolder.Store.Admin.Server.Send(
-                    new CreateDatabaseOperation(
-                        new DatabaseRecord(Configuration.Settings.Database)));
-            }
+            OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDB);
+            OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDataDB);
         }
     }
 }

@@ -3,6 +3,7 @@
     /*
         "id","cat_name","last_mod"
      */
+
     public class BeerCategoryRow
     {
         public int id { get; set; }

@@ -6,21 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\ThirdParty\openbeerdb_csv\beers.csv" Link="CsvDataFiles\beers.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\ThirdParty\openbeerdb_csv\breweries.csv" Link="CsvDataFiles\breweries.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\ThirdParty\openbeerdb_csv\breweries_geocode.csv" Link="CsvDataFiles\breweries_geocode.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\ThirdParty\openbeerdb_csv\categories.csv" Link="CsvDataFiles\categories.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\ThirdParty\openbeerdb_csv\styles.csv" Link="CsvDataFiles\styles.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Compile Remove="CsvDataFiles\**" />
+    <EmbeddedResource Remove="CsvDataFiles\**" />
+    <None Remove="CsvDataFiles\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,7 +20,39 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CsvDataFiles\" />
+    <None Include="..\ThirdParty\openbeerdata\bjcp_categories.csv" Link="DataFiles\bjcp_categories.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\bjcp_subcategories.csv" Link="DataFiles\bjcp_subcategories.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\fermentables.csv" Link="DataFiles\fermentables.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\hops.csv" Link="DataFiles\hops.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\hop_substitutes.csv" Link="DataFiles\hop_substitutes.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\srm.csv" Link="DataFiles\srm.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\beers.csv" Link="DataFiles\beers.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\breweries.csv" Link="DataFiles\breweries.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\breweries_geocode.csv" Link="DataFiles\breweries_geocode.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\categories.csv" Link="DataFiles\categories.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\styles.csv" Link="DataFiles\styles.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
