@@ -26,11 +26,7 @@ namespace MyImportBeerDB.RavenEntities
             CreateMap<BeerRow, Beer>()
                 .ForMember(dst => dst.Id, cfg => cfg.ResolveUsing(x => "beers/" + x.id))
                 .ForMember(dst => dst.Description, cfg => cfg.MapFrom(src => src.descript))
-                .ForMember(dst => dst.Brewery, cfg => cfg.ResolveUsing(x =>
-                {
-                    var brewery = InMemoryOpenBeerDB.Breweries.FirstOrDefault(br => br.id == x.brewery_id);
-                    return "breweries/" + brewery?.id;
-                }))
+                .ForMember(dst => dst.Brewery, cfg => cfg.ResolveUsing(x => "breweries/" + x.brewery_id))
                 .ForMember(dst => dst.CategoryName, cfg => cfg.ResolveUsing(x =>
                 {
                     var category = InMemoryOpenBeerDB.BeerCategories.FirstOrDefault(br => br.id == x.cat_id);

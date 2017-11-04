@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using AutoMapper;
-using ImportBeerDBTemplate.CsvRowEntities;
 using ImportBeerDBTemplate.Utils;
 using MyImportBeerDB.RavenEntities;
 
@@ -24,7 +23,8 @@ namespace ImportBeerDBTemplate
                 config.AddProfiles(typeof(Program).Assembly);
             });
 
-
+            Console.WriteLine();
+            Console.WriteLine("Importing data into " + Configuration.Settings.OpenBeerDB);
             OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDB);
 
             RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDB,
@@ -41,7 +41,7 @@ namespace ImportBeerDBTemplate
 
             //OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDataDB);
 
-            Console.WriteLine($"{Environment.NewLine} Finished importing data :)");
+            Console.WriteLine($"{Environment.NewLine}Finished importing data :)");
         }
     }
 }
