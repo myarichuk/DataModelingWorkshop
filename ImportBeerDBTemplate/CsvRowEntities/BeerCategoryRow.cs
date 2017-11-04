@@ -1,4 +1,4 @@
-﻿namespace ImportBeerDB.CsvRow
+﻿namespace ImportBeerDBTemplate.CsvRowEntities
 {
     /*
         "id","cat_name","last_mod"

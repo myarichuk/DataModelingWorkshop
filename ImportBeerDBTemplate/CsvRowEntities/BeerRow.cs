@@ -1,7 +1,6 @@
-﻿using System;
-using CsvHelper.Configuration;
+﻿using CsvHelper.Configuration;
 
-namespace ImportBeerDB.CsvRow
+namespace ImportBeerDBTemplate.CsvRowEntities
 {
     /*
      id	brewery_id	name	cat_id	style_id	abv	ibu	srm	upc	filepath	descript	last_mod

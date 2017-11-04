@@ -1,4 +1,4 @@
-﻿namespace ImportBeerDB.CsvRow
+﻿namespace ImportBeerDBTemplate.CsvRowEntities
 {
     /*
 "id","name","address1","address2","city","state","code","country","phone","website","filepath","descript","last_mod"

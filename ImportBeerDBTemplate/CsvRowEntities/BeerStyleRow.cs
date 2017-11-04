@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ImportBeerDB.CsvRow
+﻿namespace ImportBeerDBTemplate.CsvRowEntities
 {
     /*
         "id","cat_id","style_name","last_mod"

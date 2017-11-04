@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using CsvHelper;
 using CsvHelper.Configuration;
-using ImportBeerDB.CsvRow;
+using ImportBeerDBTemplate.CsvRowEntities;
 
-namespace ImportBeerDB
+namespace ImportBeerDBTemplate
 {
     public static class BeersDBInMemory
     {
@@ -24,7 +22,7 @@ namespace ImportBeerDB
         public static IReadOnlyList<BeerStyleRow> BeerStyles => _beerStyles;
 
 
-        public static void LoadFromCsv()
+        public static void LoadDataFromCsv()
         {
             var currentFolder = new FileInfo(typeof(Program).Assembly.Location).Directory.FullName;
             ReadCsv<BeerRow>(currentFolder, "beers.csv", row => _beers.Add(row), config => config.RegisterClassMap<BeerRowMap>());
@@ -40,7 +38,7 @@ namespace ImportBeerDB
             Action<TRow> rowReadCallback,
             Action<IReaderConfiguration> changeConfiguration = null)
         {
-            using (var csvStream = File.OpenText(Path.Combine(currentFolder, filename)))
+            using (var csvStream = File.OpenText(Path.Combine(currentFolder,"CsvDataFiles", filename)))
             using (var csvReader = new CsvReader(csvStream, true))
             {
                 changeConfiguration?.Invoke(csvReader.Configuration);
