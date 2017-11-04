@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="OpenBeerDB\**" />
+    <EmbeddedResource Remove="OpenBeerDB\**" />
+    <None Remove="OpenBeerDB\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\ThirdParty\openbeerdb_csv\beers.csv" Link="beers.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb_csv\breweries.csv" Link="breweries.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb_csv\breweries_geocode.csv" Link="breweries_geocode.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb_csv\categories.csv" Link="categories.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb_csv\styles.csv" Link="styles.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="5.0.0.1" />
+  </ItemGroup>
+
+</Project>
