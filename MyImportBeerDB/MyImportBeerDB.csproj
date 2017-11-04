@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\ImportBeerDBTemplate\BeersDBInMemory.cs" Link="BeersDBInMemory.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerCategoryRow.cs" Link="CsvRowEntities\BeerCategoryRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerRow.cs" Link="CsvRowEntities\BeerRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerStyleRow.cs" Link="CsvRowEntities\BeerStyleRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BreweryGeocodeRow.cs" Link="CsvRowEntities\BreweryGeocodeRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BreweryRow.cs" Link="CsvRowEntities\BreweryRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\RavenUtils\Configuration.cs" Link="RavenUtils\Configuration.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\RavenUtils\Constants.cs" Link="RavenUtils\Constants.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\RavenUtils\DocumentStoreHolder.cs" Link="RavenUtils\DocumentStoreHolder.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\RavenUtils\OperationUtils.cs" Link="RavenUtils\OperationUtils.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="CsvHelper" Version="5.0.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+    <PackageReference Include="RavenDB.Client" Version="4.0.0-rc-40019" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CsvRowEntities\" />
+    <Folder Include="CsvDataFiles\" />
+    <Folder Include="RavenUtils\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\ThirdParty\openbeerdb_csv\beers.csv" Link="CsvDataFiles\beers.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb_csv\breweries.csv" Link="CsvDataFiles\breweries.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb_csv\breweries_geocode.csv" Link="CsvDataFiles\breweries_geocode.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb_csv\categories.csv" Link="CsvDataFiles\categories.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb_csv\styles.csv" Link="CsvDataFiles\styles.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
