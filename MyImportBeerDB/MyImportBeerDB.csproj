@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerCategoryRow.cs" Link="CsvRowEntities\BeerCategoryRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerRecipeRow.cs" Link="CsvRowEntities\BeerRecipeRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerRow.cs" Link="CsvRowEntities\BeerRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerStyleRow.cs" Link="CsvRowEntities\BeerStyleRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BJCPCategoryRow.cs" Link="CsvRowEntities\BJCPCategoryRow.cs" />
