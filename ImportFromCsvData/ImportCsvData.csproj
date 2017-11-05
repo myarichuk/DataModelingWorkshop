@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="CsvHelper" Version="5.0.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+    <PackageReference Include="RavenDB.Client" Version="4.0.0-rc-40019" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataFiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\ThirdParty\openbeerdata\bjcp_categories.csv" Link="DataFiles\bjcp_categories.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\bjcp_subcategories.csv" Link="DataFiles\bjcp_subcategories.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\fermentables.csv" Link="DataFiles\fermentables.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\hops.csv" Link="DataFiles\hops.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\hop_substitutes.csv" Link="DataFiles\hop_substitutes.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdata\srm.csv" Link="DataFiles\srm.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\beers.csv" Link="DataFiles\beers.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\breweries.csv" Link="DataFiles\breweries.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\breweries_geocode.csv" Link="DataFiles\breweries_geocode.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\categories.csv" Link="DataFiles\categories.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\geocodes.csv" Link="DataFiles\geocodes.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\openbeerdb\styles.csv" Link="DataFiles\styles.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\the-simpsons-by-the-data\simpsons_characters.csv" Link="DataFiles\simpsons_characters.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\the-simpsons-by-the-data\simpsons_episodes.csv" Link="DataFiles\simpsons_episodes.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\the-simpsons-by-the-data\simpsons_locations.csv" Link="DataFiles\simpsons_locations.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\ThirdParty\the-simpsons-by-the-data\simpsons_script_lines.csv" Link="DataFiles\simpsons_script_lines.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,6 @@
+* How many times a character speaks during a certain episode/season/whole series
+* What is the most spoken word of a character
+* In which location, episode/season does a character speak the largest duration
+* Most frequent speakers per location
+* Most spoken word 
+* Most spoken word/character
