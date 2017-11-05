@@ -1,31 +1,7 @@
 ﻿namespace ImportBeerDBTemplate.CsvRowEntities
 {
-    public class BJCPSubCategories
+    public class BJCPSubCategoryRow
     {
-        /*
-        _id,
-        bjcp_category_id,
-        display_id,
-        name,
-        aroma,
-        appearance,
-        flavor,
-        mouthfeel,
-        impression,
-        comments,
-        ingredients,
-        og_low,
-        og_high,
-        fg_low,
-        fg_high,
-        ibu_low,
-        ibu_high,
-        srm_low,
-        srm_high,
-        abv_low,
-        abv_high,
-        examples
-        */
         public int _id { get; set; }
         public int bjcp_category_id { get; set; }
         public string display_id { get; set; }

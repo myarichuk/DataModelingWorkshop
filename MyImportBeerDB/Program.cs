@@ -9,21 +9,18 @@ namespace ImportBeerDBTemplate
     class Program
     {
         static void Main(string[] args)
-        {
+        {          
+            Mapper.Initialize(config =>
+            {                
+                config.AddProfiles(typeof(Program).Assembly);
+                config.CreateMissingTypeMaps = true;
+            });
+
+            Console.WriteLine();
             Console.Write("Loading OpenBeerDB data from csv files...");
             InMemoryOpenBeerDB.LoadData();
             Console.WriteLine("done");
 
-            Console.Write("Loading OpenBeerDataDB data from csv files...");
-            InMemoryOpenBeerDataDB.LoadData();
-            Console.WriteLine("done");
-
-            Mapper.Initialize(config =>
-            {                
-                config.AddProfiles(typeof(Program).Assembly);
-            });
-
-            Console.WriteLine();
             Console.WriteLine("Importing data into " + Configuration.Settings.OpenBeerDB);
             OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDB);
 
@@ -39,7 +36,32 @@ namespace ImportBeerDBTemplate
             RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDB,
                 InMemoryOpenBeerDB.Beers.Select(Mapper.Map<Beer>));
 
-            //OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDataDB);
+            DocumentStoreHolder.Store.Database = Configuration.Settings.OpenBeerDataDB;
+
+            new Index_BeerByNameAndBreweryName_StrongTypedDefinition().Execute(DocumentStoreHolder.Store);
+            new Index_BeerByNameAndBreweryName_StringDefinition().Execute(DocumentStoreHolder.Store);
+
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine();
+
+            OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDataDB);
+
+            Console.Write("Loading OpenBeerDataDB data from csv files...");
+            InMemoryOpenBeerDataDB.LoadData();
+            Console.WriteLine("done");
+
+            RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDataDB,
+                InMemoryOpenBeerDataDB.Hops.Select(Mapper.Map<Hops>));
+
+            RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDataDB,
+                InMemoryOpenBeerDataDB.BJCPCategories.Select(Mapper.Map<BJCPCategories>));
+
+            RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDataDB,
+                InMemoryOpenBeerDataDB.Fermentables.Select(Mapper.Map<Fermentables>));
+
+            RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDataDB,
+                InMemoryOpenBeerDataDB.Srm.Select(Mapper.Map<Srm>));
 
             Console.WriteLine($"{Environment.NewLine}Finished importing data :)");
         }

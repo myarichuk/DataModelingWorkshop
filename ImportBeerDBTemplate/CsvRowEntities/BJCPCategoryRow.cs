@@ -1,6 +1,6 @@
 ﻿namespace ImportBeerDBTemplate.CsvRowEntities
 {
-    public class BJCPCategories
+    public class BJCPCategoryRow
     {
         //_id,name
         public int _id { get; set; }

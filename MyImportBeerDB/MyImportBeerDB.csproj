@@ -10,13 +10,14 @@
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerRecipeRow.cs" Link="CsvRowEntities\BeerRecipeRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerRow.cs" Link="CsvRowEntities\BeerRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerStyleRow.cs" Link="CsvRowEntities\BeerStyleRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BJCPCategories.cs" Link="CsvRowEntities\BJCPCategories.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BJCPSubCategories.cs" Link="CsvRowEntities\BJCPSubCategories.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BJCPCategoryRow.cs" Link="CsvRowEntities\BJCPCategoryRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BJCPSubCategoryRow.cs" Link="CsvRowEntities\BJCPSubCategoryRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BreweryGeocodeRow.cs" Link="CsvRowEntities\BreweryGeocodeRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BreweryRow.cs" Link="CsvRowEntities\BreweryRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\FermentablesRow.cs" Link="CsvRowEntities\FermentablesRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\HopsRow.cs" Link="CsvRowEntities\HopsRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\HopSubstituteRow.cs" Link="CsvRowEntities\HopSubstituteRow.cs" />
+    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\SrmRow.cs" Link="CsvRowEntities\SrmRow.cs" />
     <Compile Include="..\ImportBeerDBTemplate\InMemoryOpenBeerDataDB.cs" Link="InMemoryOpenBeerDataDB.cs" />
     <Compile Include="..\ImportBeerDBTemplate\InMemoryOpenBeerDB.cs" Link="InMemoryOpenBeerDB.cs" />
     <Compile Include="..\ImportBeerDBTemplate\Utils\Configuration.cs" Link="Utils\Configuration.cs" />
