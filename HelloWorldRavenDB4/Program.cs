@@ -161,6 +161,7 @@ namespace HelloWorldRavenDB4
                 }
 
                 //simple RQL patch
+                // ReSharper disable once NotAccessedVariable
                 var result = store.Operations.Send(new PatchByQueryOperation(
                         @"FROM Orders as o
                           WHERE o.Name = 'Not Acme Inc.'
@@ -168,6 +169,7 @@ namespace HelloWorldRavenDB4
                     .WaitForCompletion<BulkOperationResult>(TimeSpan.FromSeconds(15));
 
                 //complex RQL patch
+                // ReSharper disable once RedundantAssignment
                 result = store.Operations.Send(new PatchByQueryOperation(
                         @"  DECLARE function convertToLowercase(c){
                                 return c.Name.toLowercase();
