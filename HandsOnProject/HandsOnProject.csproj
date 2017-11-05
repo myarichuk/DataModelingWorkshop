@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\ImportFromCsvData\RavenEntities\Beer.cs" Link="Entities\Beer.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\BeerCategory.cs" Link="Entities\BeerCategory.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\BeerStyle.cs" Link="Entities\BeerStyle.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\BJCPCategories.cs" Link="Entities\BJCPCategories.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\BJCPSubCategories.cs" Link="Entities\BJCPSubCategories.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\Brewery.cs" Link="Entities\Brewery.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\Character.cs" Link="Entities\Character.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\Episode.cs" Link="Entities\Episode.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\Fermentables.cs" Link="Entities\Fermentables.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\Hops.cs" Link="Entities\Hops.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\Location.cs" Link="Entities\Location.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\ScriptLine.cs" Link="Entities\ScriptLine.cs" />
+    <Compile Include="..\ImportFromCsvData\RavenEntities\SRM.cs" Link="Entities\SRM.cs" />
+    <Compile Include="..\ImportFromCsvData\Utils\Configuration.cs" Link="Utils\Configuration.cs" />
+    <Compile Include="..\ImportFromCsvData\Utils\Constants.cs" Link="Utils\Constants.cs" />
+    <Compile Include="..\ImportFromCsvData\Utils\DocumentStoreHolder.cs" Link="Utils\DocumentStoreHolder.cs" />
+    <Compile Include="..\ImportFromCsvData\Utils\OperationUtils.cs" Link="Utils\OperationUtils.cs" />
+    <Compile Include="..\ImportFromCsvData\Utils\SettingValues.cs" Link="Utils\SettingValues.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Utils\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+    <PackageReference Include="RavenDB.Client" Version="4.0.0-nightly-20171104-0500" />
+  </ItemGroup>
+
+</Project>

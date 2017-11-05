@@ -1,0 +1,6 @@
+﻿{
+    "Urls": [ "http://localhost:8080" ],
+    "OpenBeerDB": "OpenBeerDB",
+    "OpenBeerDataDB": "OpenBeerDataDB",
+    "SimpsonsDB": "SimpsonsDB"
+}

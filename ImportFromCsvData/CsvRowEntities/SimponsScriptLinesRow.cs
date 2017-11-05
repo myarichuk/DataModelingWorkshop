@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using ImportCsvData.RavenEntities;
-
-namespace ImportCsvData.CsvRowEntities
+﻿namespace ImportCsvData.CsvRowEntities
 {
     public class SimponsScriptLinesRow
     {

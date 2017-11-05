@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-
-namespace ImportCsvData.RavenEntities
+﻿namespace ImportCsvData.RavenEntities
 {
     public class Fermentables
     {
@@ -9,9 +7,5 @@ namespace ImportCsvData.RavenEntities
         public string Name { get; set; }
         public string Notes { get; set; }
         public double Color { get; set; }
-    }
-
-    public class FermentablesMapProfile : Profile
-    {
     }
 }

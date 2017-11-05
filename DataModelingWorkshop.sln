@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImportCsvData", "ImportFrom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldRavenDB4", "HelloWorldRavenDB4\HelloWorldRavenDB4.csproj", "{02E22011-5DE9-4118-B637-860E81EEB830}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandsOnProject", "HandsOnProject\HandsOnProject.csproj", "{0AD7799A-F697-48DA-AC19-1B80D137AFBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{02E22011-5DE9-4118-B637-860E81EEB830}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02E22011-5DE9-4118-B637-860E81EEB830}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02E22011-5DE9-4118-B637-860E81EEB830}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AD7799A-F697-48DA-AC19-1B80D137AFBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AD7799A-F697-48DA-AC19-1B80D137AFBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AD7799A-F697-48DA-AC19-1B80D137AFBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AD7799A-F697-48DA-AC19-1B80D137AFBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
