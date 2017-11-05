@@ -6,28 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerCategoryRow.cs" Link="CsvRowEntities\BeerCategoryRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerRow.cs" Link="CsvRowEntities\BeerRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BeerStyleRow.cs" Link="CsvRowEntities\BeerStyleRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BJCPCategoryRow.cs" Link="CsvRowEntities\BJCPCategoryRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BJCPSubCategoryRow.cs" Link="CsvRowEntities\BJCPSubCategoryRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BreweryGeocodeRow.cs" Link="CsvRowEntities\BreweryGeocodeRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\BreweryRow.cs" Link="CsvRowEntities\BreweryRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\FermentablesRow.cs" Link="CsvRowEntities\FermentablesRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\HopsRow.cs" Link="CsvRowEntities\HopsRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\HopSubstituteRow.cs" Link="CsvRowEntities\HopSubstituteRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\CsvRowEntities\SrmRow.cs" Link="CsvRowEntities\SrmRow.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\InMemoryOpenBeerDataDB.cs" Link="InMemoryOpenBeerDataDB.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\InMemoryOpenBeerDB.cs" Link="InMemoryOpenBeerDB.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\Utils\Configuration.cs" Link="Utils\Configuration.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\Utils\Constants.cs" Link="Utils\Constants.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\Utils\DocumentStoreHolder.cs" Link="Utils\DocumentStoreHolder.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\Utils\MiscUtils.cs" Link="Utils\MiscUtils.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\Utils\OperationUtils.cs" Link="Utils\OperationUtils.cs" />
-    <Compile Include="..\ImportBeerDBTemplate\Utils\RavenUtil.cs" Link="Utils\RavenUtil.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
     <PackageReference Include="CsvHelper" Version="5.0.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
@@ -37,9 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CsvRowEntities\" />
     <Folder Include="DataFiles\" />
-    <Folder Include="Utils\" />
   </ItemGroup>
 
   <ItemGroup>
