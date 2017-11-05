@@ -154,7 +154,7 @@ namespace HelloWorldRavenDB4
                         {
                             PricePerUnit = (decimal)3.5,
                             Quantity = 1234,
-                            ProductName = "Beer"
+                            ProductName = "FooBar!"
                         }));
 
                     session.SaveChanges(); //commit tx
