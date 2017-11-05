@@ -16,9 +16,19 @@ namespace ImportBeerDBTemplate
             InMemoryOpenBeerDataDB.LoadData();
             Console.WriteLine("done");
 
+            Console.WriteLine("Importing data into " + Configuration.Settings.OpenBeerDB);
             OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDB);
+
+            //RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDB, /*entities to import*/);
+
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine();
+
+            Console.WriteLine("Importing data into " + Configuration.Settings.OpenBeerDataDB);
             OperationUtils.CreateDatabaseIfNeeded(Configuration.Settings.OpenBeerDataDB);
 
+            //RavenUtil.ImportEntities(Configuration.Settings.OpenBeerDataDB, /*entities to import*/);
         }
     }
 }
