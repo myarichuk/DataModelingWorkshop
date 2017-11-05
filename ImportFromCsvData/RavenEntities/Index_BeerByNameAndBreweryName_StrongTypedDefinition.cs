@@ -4,7 +4,7 @@ using Raven.Client.Documents.Indexes;
 namespace ImportCsvData.RavenEntities
 {
     /*
-        Example of RQL querying an index:
+        Example of RQL searching on an index:
         
         from index 'Index/BeerByNameAndBreweryName/StrongTypedDefinition' as i
         where Search(i.Beer, "Pils") and i.Country = "United States"
@@ -22,7 +22,7 @@ namespace ImportCsvData.RavenEntities
                     Beer = beer.Name,
                     Brewery = brewery.Name,
                     brewery.Country,
-                };
+                };      
             
             Analyze("Beer","StandardAnalyzer");
         }
