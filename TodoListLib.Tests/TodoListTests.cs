@@ -15,6 +15,45 @@ namespace TodoListLib.Tests
         }
 
         [Fact]
+        public void Count_tasks_per_date_should_work()
+        {
+            _todoManager.Add(new TodoItem
+            {
+                Name = "Buy groceries",
+                Deadline = DateTime.UtcNow.AddDays(3)
+            });
+
+            _todoManager.Add(new TodoItem
+            {
+                Name = "Wash car",
+                Deadline = DateTime.UtcNow.AddDays(3)
+            });
+
+            _todoManager.Add(new TodoItem
+            {
+                Name = "Don't forget to buy presents for myself",
+                Deadline = DateTime.UtcNow.AddDays(7)
+            });
+
+            _todoManager.Add(new TodoItem
+            {
+                Name = "Play Fallout 4",
+                Deadline = DateTime.UtcNow.AddDays(7)
+            });
+
+            _todoManager.Add(new TodoItem
+            {
+                Name = "Don't forget to buy flowers for wife",
+                Deadline = DateTime.UtcNow.AddDays(7)
+            });
+
+            var taskCountPerDeadline = _todoManager.CountTasksPerDate();
+            Assert.Equal(2, taskCountPerDeadline.Count);
+            Assert.Equal(3, taskCountPerDeadline[DateTime.UtcNow.AddDays(7).Date]);
+            Assert.Equal(2, taskCountPerDeadline[DateTime.UtcNow.AddDays(3).Date]);
+        }
+
+        [Fact]
         public void Can_add_item()
         {
             var itemId = _todoManager.Add(new TodoItem

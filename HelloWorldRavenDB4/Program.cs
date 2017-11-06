@@ -14,7 +14,9 @@ namespace HelloWorldRavenDB4
             //assuming Northwind database created on http://localhost:8080 local server
             using (var store = new DocumentStore
             {
-                Urls = new[] {"http://localhost:8080"}, //what adresses to listen
+                //if we are connecting to cluster, then Urls should contain
+                //addresses of the cluster nodes
+                Urls = new[] {"http://localhost:8080"}, 
                 Database = "Northwind" //default database to connect
             })
             {
@@ -136,7 +138,18 @@ namespace HelloWorldRavenDB4
                         },
                         Name = "Acme Inc."
                     });
+                    session.Store(new Company
+                    {                        
+                        Name = "Evil Toys Inc."
+                    });
                     session.SaveChanges(); //commit tx
+                }
+
+                using (var session = store.OpenSession())
+                {
+                    var companyToDelete = session.Query<Company>().FirstOrDefault(x => x.Name == "Evil Toys Inc.");//
+                    session.Delete(companyToDelete);
+                    session.SaveChanges();
                 }
 
                 using (var session = store.OpenSession()) //open tx

@@ -1,7 +1,7 @@
 ﻿namespace ImportCsvData.CsvRowEntities
 {
     //_id,name,origin,alpha_low,alpha_high,notes
-    public class HopsRow
+    public class HopRow
     {
         public int _id { get; set; }
         public string name { get; set; }

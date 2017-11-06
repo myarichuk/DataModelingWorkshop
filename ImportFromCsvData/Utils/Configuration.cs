@@ -10,7 +10,7 @@ namespace ImportCsvData.Utils
         {
             public string[] Urls { get; set; }
             public string OpenBeerDB { get; set; }
-            public string OpenBeerDataDB { get; set; }
+            public string OpenBeerIngredientsDB { get; set; }
             public string SimpsonsDB { get; set; }
         }
 

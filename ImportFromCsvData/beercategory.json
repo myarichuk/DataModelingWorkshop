@@ -1,0 +1,10 @@
+﻿{
+    "Name": "Tomahawk",
+    "Origin": "U.S.",
+    //hop data
+    "SubstituteIdByName": {
+        "Columbus": "hops/13",
+        "Zeus": "hops/75"
+    }
+}
+

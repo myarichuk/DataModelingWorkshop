@@ -11,7 +11,7 @@ namespace ImportCsvData.RavenEntities
             CreateMap<BJCPCategoryRow, BJCPCategories>()
                 .ForMember(dst => dst.Id, cfg => cfg.ResolveUsing(x => "bjcpcategories/" + x._id))
                 .ForMember(dst => dst.Categories, cfg => cfg.ResolveUsing(x => 
-                    InMemoryOpenBeerDataDB.BJCPSubCategories.Select(Mapper.Map<BJCPSubCategories>).ToList()));
+                    InMemoryOpenBeerIngredientsDB.BJCPSubCategories.Select(Mapper.Map<BJCPSubCategories>).ToList()));
         }
     }
 }

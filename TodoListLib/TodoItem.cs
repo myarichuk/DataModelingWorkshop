@@ -7,6 +7,7 @@ namespace TodoListLib
         public string Id { get; set; }
         public string Name { get; set; }
         public DateTime Started { get; set; }
+        public bool IsFinished { get; set; }
         public DateTime Deadline { get; set; }
     }
 }

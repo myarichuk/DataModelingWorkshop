@@ -2,7 +2,7 @@
 
 namespace ImportCsvData.RavenEntities
 {
-    public class Hops
+    public class Hop
     {
         public string Id { get; set; }
         public string Name { get; set; }

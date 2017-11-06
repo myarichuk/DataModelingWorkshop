@@ -34,7 +34,9 @@ namespace TodoListLib
                 {
                     item.Started = DateTime.UtcNow;
                 }
-
+                
+                //tasks usually do not have seconds/minutes/hours in their deadline, so...
+                item.Deadline = item.Deadline.Date; 
                 session.Store(item);
                 session.SaveChanges();
 
@@ -49,6 +51,42 @@ namespace TodoListLib
             {
                 session.Delete(id);
                 session.SaveChanges();
+            }
+        }
+
+        public void MarkAsFinished(params string[] taskIds)
+        {
+            using (var session = _store.OpenSession())
+            {
+                var tasksToFinish = session.Load<TodoItem>(taskIds);
+
+                foreach(var taskKvp in tasksToFinish)
+                {
+                    if(taskKvp.Value != null)
+                    {
+                        //the session tracks entities,
+                        //so once SaveChanges() is called, changes are persisted
+                        //in a single tx
+                        taskKvp.Value.IsFinished = true;
+                    }
+                }
+                session.SaveChanges();
+            }
+        }
+
+            public Dictionary<DateTime,int> CountTasksPerDate()
+        {
+            using (var session = _store.OpenSession())
+            {
+                var result = from todoItem in session.Query<TodoItem>()
+                             group todoItem by todoItem.Deadline into g
+                             select new
+                             {
+                                 Deadline = g.Key,
+                                 Count = g.Count()
+                             };
+
+                return result.ToDictionary(x => x.Deadline, x => x.Count);
             }
         }
 
@@ -72,8 +110,9 @@ namespace TodoListLib
             using (var session = _store.OpenSession())
             {
                 return session.Query<TodoItem>()
-                              .Where(t => t.Deadline.Date == DateTime.UtcNow.Date)
+                              .Where(t => t.Deadline.Equals(deadline.Date))
                               .ToList();
+
             }
         }
 
