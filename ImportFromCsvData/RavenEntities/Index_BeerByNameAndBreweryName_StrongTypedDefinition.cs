@@ -10,6 +10,7 @@ namespace ImportCsvData.RavenEntities
         where Search(i.Beer, "Pils") and i.Country = "United States"
 
      */
+
     public class Index_BeerByNameAndBreweryName_StrongTypedDefinition : AbstractIndexCreationTask<Beer>
     {
         public Index_BeerByNameAndBreweryName_StrongTypedDefinition()

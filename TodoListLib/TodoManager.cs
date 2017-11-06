@@ -78,6 +78,8 @@ namespace TodoListLib
         {
             using (var session = _store.OpenSession())
             {
+                
+                //note: running this query will create map/reduce index
                 var result = from todoItem in session.Query<TodoItem>()
                              group todoItem by todoItem.Deadline into g
                              select new

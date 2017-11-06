@@ -41,7 +41,8 @@ namespace ImportCsvData
 
             DocumentStoreHolder.Store.Database = Configuration.Settings.OpenBeerIngredientsDB;
 
-            new Index_BeerByNameAndBreweryName_StrongTypedDefinition().Execute(DocumentStoreHolder.Store);
+            new Index_BeerByNameAndBreweryName_StrongTypedDefinition().Execute(DocumentStoreHolder.Store);            
+
             new Index_BeerByNameAndBreweryName_StringDefinition().Execute(DocumentStoreHolder.Store);
 
             Console.WriteLine();

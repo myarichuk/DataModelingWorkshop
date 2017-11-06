@@ -3,6 +3,7 @@ using System.Linq;
 using Orders;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
+using Raven.Client.Documents.Queries;
 
 namespace HelloWorldRavenDB4
 {
@@ -42,13 +43,13 @@ namespace HelloWorldRavenDB4
                                 ord.Lines.Sum(l => l.PricePerUnit * l.Quantity - l.Discount))
                         select new
                         {
-                            OrderId = o.Id,
+                            CompanyId = o.Company,
                             TotalMoneySpent = TotalSpentOnOrder(o)
                         };
 
                     foreach (var item in complexLinqQuery)
                     {
-                        Console.WriteLine($@"Order Id:{item.OrderId},  
+                        Console.WriteLine($@"Order Id:{item.CompanyId},  
                                                          Total Spent:{item.TotalMoneySpent}");
                     }
 
@@ -104,12 +105,38 @@ namespace HelloWorldRavenDB4
                             $@"Ordered At:{item.OrderedAt}, Company:{item.Company}, Total: {item.TotalSumSpent}");
                     }
 
+                    var veryComplexQueryWithTransformation = session.Advanced.RawQuery<dynamic>(@"
+                        DECLARE function lineItemPrice(l) {
+                            return l.PricePerUnit * 
+                                   l.Quantity * 
+                                   (1 - l.Discount);
+                        }
+                        FROM Orders AS o
+                        SELECT {
+                            TopProducts: o.Lines
+                                .sort((a, b) => 
+                                    lineItemPrice(b) - 
+                                        lineItemPrice(a) )
+                                .map( x => x.ProductName)
+                                .slice(0,2),
+                            Total: o.Lines.reduce((acc, l) => 
+                                    acc + lineItemPrice(l),
+                                    0)
+                        }
+
+                    ");
+
+                    foreach (var item in veryComplexQueryWithTransformation)
+                    {
+                        Console.WriteLine(
+                            $@"Top products:{item.TopProducts}, Total: {item.Total}");
+                    }
                     var queryWithIncludes = from order in session.Query<Order>()
                             .Include(o => o.Company)
                         select order;
 
                     //RQL : FROM Orders INCLUDE Company
-                    foreach (var item in queryWithIncludes.Take(4))
+                    foreach (var item in queryWithIncludes.Take(4).ToList())
                     {
                         Console.WriteLine($@"Ordered At:{item.OrderedAt}, Company:{item.Company}");
 
@@ -174,25 +201,22 @@ namespace HelloWorldRavenDB4
 
                 //simple RQL patch
                 // ReSharper disable once NotAccessedVariable
-                var result = store.Operations.Send(new PatchByQueryOperation(
-                        @"FROM Orders as o
-                          WHERE o.Name = 'Not Acme Inc.'
-                          UPDATE { this.Name = 'Evil John Inc.' }"))
-                    .WaitForCompletion<BulkOperationResult>(TimeSpan.FromSeconds(15));
+                // ReSharper disable once UnusedVariable
+                //var result = store.Operations.Send(new PatchByQueryOperation(
+                //        @"FROM Companies  as c
+                //          WHERE c.Name = 'Not Acme Inc.'
+                //          UPDATE { this.Name = 'Evil John Inc.' }"))
+                //    .WaitForCompletion<BulkOperationResult>();
+                //Console.WriteLine("Updated: " + result.Total);
 
-                //complex RQL patch
-                // ReSharper disable once RedundantAssignment
-                result = store.Operations.Send(new PatchByQueryOperation(
-                        @"  DECLARE function convertToLowercase(c){
-                                return c.Name.toLowercase();
-                            }
-                            FROM index 'Orders/Totals' as i
-                            WHERE i.Total > 10000
-                            LOAd i.Company as c
-                            UPDATE { 
-                                i.LowerName = convertToLowercase(c);
-                            }"))
-                    .WaitForCompletion<BulkOperationResult>(TimeSpan.FromSeconds(15));
+                //bulk delete
+                var result = store.Operations
+                     .Send(new DeleteByQueryOperation(new IndexQuery
+                     {
+                         Query = "FROM Companies as c WHERE c.Name = 'Not Acme Inc.'"
+                     }))
+                     .WaitForCompletion<BulkOperationResult>();
+                Console.WriteLine("Deleted: " + result.Total);
             }
         }
     }
