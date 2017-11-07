@@ -11,7 +11,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
-    <PackageReference Include="RavenDB.Client" Version="4.0.0-nightly-20171106-0501" />
+    <PackageReference Include="RavenDB.Client" Version="4.0.0-nightly-20171107-0500" />
   </ItemGroup>
 
   <ItemGroup>
