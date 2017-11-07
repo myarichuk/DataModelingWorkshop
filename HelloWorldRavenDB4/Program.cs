@@ -147,6 +147,10 @@ namespace HelloWorldRavenDB4
                     }
                 }
 
+                var evilToysCompany = new Company
+                {
+                    Name = "Evil Toys Inc."
+                };
                 using (var session = store.OpenSession()) //open tx
                 {
                     //add new document
@@ -165,10 +169,9 @@ namespace HelloWorldRavenDB4
                         },
                         Name = "Acme Inc."
                     });
-                    session.Store(new Company
-                    {                        
-                        Name = "Evil Toys Inc."
-                    });
+               
+                    
+                    session.Store(evilToysCompany);
                     session.SaveChanges(); //commit tx
                 }
 
@@ -202,21 +205,19 @@ namespace HelloWorldRavenDB4
                 //simple RQL patch
                 // ReSharper disable once NotAccessedVariable
                 // ReSharper disable once UnusedVariable
-                //var result = store.Operations.Send(new PatchByQueryOperation(
-                //        @"FROM Companies  as c
-                //          WHERE c.Name = 'Not Acme Inc.'
-                //          UPDATE { this.Name = 'Evil John Inc.' }"))
-                //    .WaitForCompletion<BulkOperationResult>();
-                //Console.WriteLine("Updated: " + result.Total);
+                store.Operations.Send(new PatchByQueryOperation(
+                        @"FROM Companies  as c
+                          WHERE Id(c) = '" + evilToysCompany.Id + @"'
+                          UPDATE { this.Name = 'Evil John Inc.' }"))
+                    .WaitForCompletion();
 
                 //bulk delete
-                var result = store.Operations
+                store.Operations
                      .Send(new DeleteByQueryOperation(new IndexQuery
                      {
-                         Query = "FROM Companies as c WHERE c.Name = 'Not Acme Inc.'"
+                         Query = "FROM Companies as c WHERE c.Name = 'Evil John Inc.'"
                      }))
-                     .WaitForCompletion<BulkOperationResult>();
-                Console.WriteLine("Deleted: " + result.Total);
+                     .WaitForCompletion();
             }
         }
     }
